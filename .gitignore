@@ -32,3 +32,8 @@ yarn-error.log*
 
 # vercel
 .vercel
+APi.js
+/APi.js
+APi.js/
+.env
+

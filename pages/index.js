@@ -5,15 +5,16 @@ import { useRouter } from 'next/router';
 export default function Home({ results }) {
     const router = useRouter();
     const onClick = (id, title) => {
-        router.push(
-            {
-                pathname: `/movies/${id}`,
-                query: {
-                    title: title,
-                },
-            },
-            `/movies/${id}`
-        );
+        router.push(`/movies/${title}/${id}`);
+        // router.push(
+        //     {
+        //         pathname: `/movies/${id}`,
+        //         query: {
+        //             title: title,
+        //         },
+        //     },
+        //     `/movies/${id}`
+        // );
     };
     return (
         <div className='container'>
@@ -32,15 +33,16 @@ export default function Home({ results }) {
                         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                     />
                     <Link
-                        href={
-                            ({
-                                pathname: `/movies/${movie.id}`,
-                                query: {
-                                    title: movie.original_title,
-                                },
-                            },
-                            `/movies/${movie.id}`)
-                        }
+                        href={`/movies/${movie.original_title}/${movie.id}`}
+                        // href={
+                        //     ({
+                        //         pathname: `/movies/${movie.id}`,
+                        //         query: {
+                        //             title: movie.original_title,
+                        //         },
+                        //     },
+                        //     `/movies/${movie.id}`)
+                        // }
                     >
                         <a>
                             <h4>{movie.original_title}</h4>
